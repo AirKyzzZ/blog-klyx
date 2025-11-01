@@ -10,8 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "generate-image": "tsx scripts/generate-cover-image.ts",
-    "generate-all-images": "tsx scripts/generate-cover-image.ts --all"
+    "get-images": "tsx scripts/unsplash-images.ts --all",
+    "get-image": "tsx scripts/unsplash-images.ts"
   },
   "dependencies": {
     "react": "19.2.0",

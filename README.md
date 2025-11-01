@@ -99,6 +99,21 @@ See `DEPLOYMENT.md` for complete deployment instructions.
 
 ---
 
+## 📸 **Copyright-Free Images (Unsplash API)**
+
+Get professional, unique images for all articles:
+
+```bash
+# 1. Get FREE API key: https://unsplash.com/developers
+# 2. Add to .env.local: UNSPLASH_ACCESS_KEY=your_key
+# 3. Download all images:
+npm run get-images
+
+# ✅ All 8 posts get unique, relevant cover images!
+```
+
+See `UNSPLASH_SETUP.md` for complete guide.
+
 ## 📁 Project Structure
 
 ```
