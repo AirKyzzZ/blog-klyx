@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getAllTags, getPostsByTag } from '@/lib/posts';
 import PostCard from '@/components/PostCard';
-import { slugify } from '@/lib/utils';
+import { slugify, capitalize } from '@/lib/utils';
 
 interface PageProps {
   params: Promise<{
@@ -28,9 +28,11 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
+  const displayTag = capitalize(tagData.tag);
+  
   return {
-    title: `Articles sur ${tagData.tag}`,
-    description: `Découvrez tous nos articles sur le thème ${tagData.tag}. ${tagData.count} article${tagData.count > 1 ? 's' : ''} disponible${tagData.count > 1 ? 's' : ''}.`,
+    title: `Articles sur ${displayTag}`,
+    description: `Découvrez tous nos articles sur le thème ${displayTag}. ${tagData.count} article${tagData.count > 1 ? 's' : ''} disponible${tagData.count > 1 ? 's' : ''}.`,
   };
 }
 
@@ -46,11 +48,13 @@ export default async function TagPage({ params }: PageProps) {
 
   const posts = getPostsByTag(tagData.tag);
 
+  const displayTag = capitalize(tagData.tag);
+
   return (
     <div className="container-custom py-12">
       <header className="mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          {tagData.tag}
+          {displayTag}
         </h1>
         <p className="text-xl text-gray-700">
           {posts.length} article{posts.length > 1 ? 's' : ''} dans cette thématique

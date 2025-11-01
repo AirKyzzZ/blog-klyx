@@ -35,3 +35,7 @@ export function excerpt(content: string, maxLength: number = 160): string {
   return content.slice(0, maxLength).trim() + '...';
 }
 
+export function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+

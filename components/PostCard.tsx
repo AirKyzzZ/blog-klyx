@@ -29,7 +29,7 @@ export default function PostCard({ post }: PostCardProps) {
             {post.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full"
+                className="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full capitalize"
               >
                 {tag}
               </span>

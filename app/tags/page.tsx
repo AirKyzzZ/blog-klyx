@@ -1,5 +1,6 @@
-import { getAllTags } from '@/lib/posts';
+import { getAllTags, getAllPosts } from '@/lib/posts';
 import TagBadge from '@/components/TagBadge';
+import PostCard from '@/components/PostCard';
 
 export const metadata = {
   title: 'Thématiques',
@@ -8,6 +9,7 @@ export const metadata = {
 
 export default function TagsPage() {
   const tags = getAllTags();
+  const allPosts = getAllPosts();
 
   return (
     <div className="container-custom py-12">
@@ -21,18 +23,34 @@ export default function TagsPage() {
         </p>
       </header>
 
-      {tags.length === 0 ? (
+      {/* Tag Cloud */}
+      {tags.length > 0 && (
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-6">Toutes les thématiques</h2>
+          <div className="flex flex-wrap gap-4">
+            {tags.map(({ tag, count }) => (
+              <TagBadge key={tag} tag={tag} count={count} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* All Articles */}
+      {allPosts.length === 0 ? (
         <div className="text-center py-12 bg-gray-50 rounded-lg">
           <p className="text-gray-600 text-lg">
-            Aucune thématique disponible pour le moment.
+            Aucun article disponible pour le moment.
           </p>
         </div>
       ) : (
-        <div className="flex flex-wrap gap-4">
-          {tags.map(({ tag, count }) => (
-            <TagBadge key={tag} tag={tag} count={count} />
-          ))}
-        </div>
+        <section>
+          <h2 className="text-2xl font-bold mb-6">Tous les articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {allPosts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );
