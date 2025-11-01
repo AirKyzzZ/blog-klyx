@@ -1,0 +1,69 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build Next.js
+        run: npm run build
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_SITE_URL: https://blog.klyx.fr
+          NEXT_PUBLIC_CALENDLY_URL: https://calendly.com/klyx-studio/call-solution-site-internet
+          NEXT_PUBLIC_CONTACT_EMAIL: contact@klyx.fr
+          NEXT_PUBLIC_MAIN_SITE_URL: https://klyx.fr
+      
+      - name: Start Next.js server
+        run: npm run start &
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_SITE_URL: https://blog.klyx.fr
+          NEXT_PUBLIC_CALENDLY_URL: https://calendly.com/klyx-studio/call-solution-site-internet
+          NEXT_PUBLIC_CONTACT_EMAIL: contact@klyx.fr
+          NEXT_PUBLIC_MAIN_SITE_URL: https://klyx.fr
+      
+      - name: Wait for server
+        run: npx wait-on http://localhost:3000 --timeout 60000
+      
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            http://localhost:3000
+            http://localhost:3000/about
+            http://localhost:3000/contact
+          budgetPath: ./.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const results = require('./.lighthouseci/manifest.json');
+            const comment = `## ⚡ Lighthouse CI Results\n\nPerformance scores are available in the artifacts.`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
