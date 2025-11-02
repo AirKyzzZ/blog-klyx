@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     description: "Blog officiel de Klyx Studio - Conseils et actualités sur la création de sites web",
     images: [
       {
-        url: `/assets/og-default.jpg`,
+        url: `/assets/posts/creation-site-web-bordeaux-2025/cover.jpg`,
         width: 1200,
         height: 630,
-        alt: "Klyx Blog",
+        alt: "Klyx Blog - Création de sites web à Bordeaux",
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Klyx Blog - Création de sites web à Bordeaux",
     description: "Blog officiel de Klyx Studio - Conseils et actualités sur la création de sites web",
-    images: [`/assets/og-default.jpg`],
+    images: [`/assets/posts/creation-site-web-bordeaux-2025/cover.jpg`],
   },
   robots: {
     index: true,
