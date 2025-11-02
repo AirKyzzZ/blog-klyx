@@ -4,8 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { trackKlyxLink } from '@/lib/analytics';
 
-const MAIN_SITE_URL = process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://klyx.fr';
-
 // Custom link component that tracks external links
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -33,10 +31,10 @@ const CustomLink = (props: any) => {
   return <Link {...props} className="text-primary hover:underline" />;
 };
 
-// Custom heading components with auto-linking
+// Custom heading components
 const createHeading = (level: number) => {
   const Heading = ({ children, ...props }: any) => {
-    const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+    const Tag = `h${level}` as any;
     return <Tag {...props}>{children}</Tag>;
   };
   Heading.displayName = `Heading${level}`;

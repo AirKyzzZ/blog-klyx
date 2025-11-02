@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import CalendlyCTA from '@/components/CalendlyCTA';
 
 const MAIN_SITE_URL = process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://klyx.fr';
