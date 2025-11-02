@@ -88,7 +88,7 @@ export default function AboutPage() {
           <ul className="space-y-3">
             <li>
               <a
-                href={`${MAIN_SITE_URL}/services`}
+                href={`${MAIN_SITE_URL}/#resources`}
                 className="text-primary hover:underline font-medium flex items-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -101,7 +101,7 @@ export default function AboutPage() {
             </li>
             <li>
               <a
-                href={`${MAIN_SITE_URL}/services/seo`}
+                href={`${MAIN_SITE_URL}/#resources`}
                 className="text-primary hover:underline font-medium flex items-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"

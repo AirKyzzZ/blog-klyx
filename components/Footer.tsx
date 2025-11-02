@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href={`${MAIN_SITE_URL}/services`}
+                  href={`${MAIN_SITE_URL}/#resources`}
                   className="text-gray-300 hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={`${MAIN_SITE_URL}/services/seo`}
+                  href={`${MAIN_SITE_URL}/#resources`}
                   className="text-gray-300 hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -73,7 +73,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={`${MAIN_SITE_URL}/portfolio`}
+                  href={`${MAIN_SITE_URL}/#portfolio`}
                   className="text-gray-300 hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
