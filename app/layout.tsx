@@ -62,6 +62,17 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: SITE_URL,
+    types: {
+      'application/rss+xml': `${SITE_URL}/rss.xml`,
+    },
+  },
+  verification: {
+    google: 'google-site-verification-code', // Replace with code from Google Search Console
+    // After getting verification code from Google Search Console,
+    // update this value and redeploy
+  },
 };
 
 export default function RootLayout({
