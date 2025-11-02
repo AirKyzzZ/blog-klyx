@@ -29,6 +29,16 @@ export const metadata: Metadata = {
   description: "Blog officiel de Klyx Studio, agence de création de sites web à Bordeaux. Découvrez nos conseils, guides et actualités sur le développement web, le SEO et plus encore.",
   keywords: ["Klyx", "création site web", "agence web Bordeaux", "développement web", "SEO", "Bordeaux"],
   authors: [{ name: "Klyx Studio" }],
+  icons: {
+    icon: [
+      { url: '/logo.png' },
+      { url: '/logo.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: "website",
     locale: "fr_FR",
