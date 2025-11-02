@@ -126,7 +126,7 @@ export default async function PostPage({ params }: PageProps) {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
 
           {/* Meta */}
-          <div className="flex items-center justify-between text-gray-600 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-gray-600 mb-8">
             <div className="flex items-center gap-4">
               <time dateTime={post.date}>{formatDate(post.date)}</time>
               <span>•</span>
