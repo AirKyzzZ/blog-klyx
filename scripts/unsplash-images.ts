@@ -99,6 +99,8 @@ function generateSearchQuery(title: string, description: string, tags: string[])
     return 'programming code laptop developer desk workspace';
   } else if (titleLower.includes('coût') || titleLower.includes('prix') || titleLower.includes('budget')) {
     return 'financial planning business budget accounting';
+  } else if (titleLower.includes('wordpress')) {
+    return 'website performance speed optimization metrics';
   } else if (titleLower.includes('choisir') || titleLower.includes('agence')) {
     return 'business handshake partnership collaboration meeting';
   } else if (titleLower.includes('seo') && titleLower.includes('bordeaux')) {
@@ -113,9 +115,9 @@ function generateSearchQuery(title: string, description: string, tags: string[])
     return 'tech conference networking people event';
   } else if (titleLower.includes('tendances') || titleLower.includes('design')) {
     return 'ui ux designer workspace figma modern';
-  } else if (titleLower.includes('wordpress')) {
-    return 'website performance speed optimization metrics';
   } else if (titleLower.includes('performance') || titleLower.includes('optimiser')) {
+    return 'website performance speed optimization metrics';
+  } else if (titleLower.includes('next.js') || titleLower.includes('nextjs')) {
     return 'fast loading website speed test dashboard';
   } else {
     // Use description keywords for better relevance
