@@ -3,6 +3,7 @@ export async function GET() {
 Allow: /
 
 Sitemap: https://klyx.fr/sitemap.xml
+Sitemap: https://blog.klyx.fr/sitemap.xml
 `;
 
   return new Response(robotsTxt, {
